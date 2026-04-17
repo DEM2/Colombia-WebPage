@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-heading: 'Manrope', system-ui, sans-serif;
+    --font-body: 'Work Sans', system-ui, sans-serif;
+
+    --amarillo: #FCD116;
+    --dark: #0D0D0D;
+}
+
+body {
+    font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+}
+
+section {
+    min-height: 100vh;
+    position: relative;
+    padding: 5rem 3rem;
+
+    &:nth-child(2) {
+        background: radial-gradient(ellipse 80% 60% at 70% 30%, rgba(26, 107, 60, .45), transparent);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            font-size: 10rem;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+
+    }
+
+    &:nth-child(4) {
+        background-color: var(--dark);
+        display: flex;
+        flex-direction: column;
+
+        p {
+            color: var(--amarillo);
+            font-size: 1.5em;
+        }
+
+        h2 {
+            color: white;
+            font-size: 4em;
+        }
+
+        figure {
+            display: grid;
+            grid-template-columns: 30em repeat(2, 1fr);
+            grid-template-rows: 20em 1fr;
+            gap: 0.7em;
+            height: 35em;
+
+            div {
+                overflow: hidden;
+                padding: 3em;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+
+                h2 {
+                    font-size: 2.5em;
+                    font-weight: 300;
+                }
+
+                p {
+                    font-size: 1.2em;
+                    color: white;
+                }
+
+                &:first-child {
+                    grid-area: 1/1/3/2;
+                    background: linear-gradient(160deg,
+                            rgba(123, 63, 0, 0.7) 0%,
+                            rgba(212, 130, 26, 0.5) 40%,
+                            rgba(26, 74, 138, 0.7) 100%), url('../img/Cartagena.jpg');
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                &:nth-child(2) {
+                    grid-area: 1/2/2/3;
+                    background: linear-gradient(135deg,
+                            rgba(13, 59, 26, 0.7) 0%,
+                            rgba(26, 107, 60, 0.5) 50%,
+                            rgba(45, 155, 90, 0.7) 100%), url("../img/Amazonia.jpg");
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                &:nth-child(3) {
+                    grid-area: 1/3/2/4;
+                    background: linear-gradient(135deg,
+                            rgba(10, 10, 42, 0.7) 0%,
+                            rgba(26, 26, 90, 0.5) 50%,
+                            rgba(58, 58, 154, 0.7) 100%), url("../img/Medellin_.jpg");
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                &:nth-child(4) {
+                    grid-area: 2/2/3/3;
+                    background: linear-gradient(135deg,
+                            rgba(59, 31, 10, 0.7) 0%,
+                            rgba(123, 74, 26, 0.5) 60%,
+                            rgba(193, 125, 58, 0.7) 100%), url("../img/eje_cafetero.jpg");
+                    background-size: cover;
+                    background-position: center;
+
+                }
+
+                &:last-child {
+                    grid-area: 2/3/3/4;
+                    background: linear-gradient(135deg,
+                            rgba(74, 10, 10, 0.7) 0%,
+                            rgba(154, 26, 26, 0.5) 50%,
+                            rgba(212, 64, 64, 0.7) 100%), url("../img/villa_de_leyva.jpg");
+                    background-size: cover;
+                    background-position: center;
+                }
+            }
+        }
+    }
+
+    &:nth-child(5) {
+        display: flex;
+        gap: 5em;
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            p{
+                &:first-child{
+                    color:red
+                }
+            }
+
+            h2{
+                font-size: 3em;
+            }
+        }
+
+        figure {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 18em 1fr;
+            width: 100%;
+            gap: 1em;
+
+            div {
+                &:first-child {
+                    grid-area: 1/1/2/3;
+                    background-color: #D4821A;
+                }
+
+                &:nth-child(2) {
+                    background-color: brown;
+                }
+
+                &:last-child {
+                    background-color: aqua;
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        video {
+            width: 100%;
+        }
+    }
+
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+    padding: 3em;
+    background-color: var(--amarillo);
+    height: 20vh;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            font-size: 1.2em;
+
+            &:first-child {
+                font-size: 2em;
+            }
+        }
+    }
+}
+
+footer {
+    height: 15vh;
+    background-color: #050505;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+
+    h3 {
+        color: var(--amarillo);
+    }
+
+    p {
+        color: white;
+    }
+
+}
