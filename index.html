@@ -42,7 +42,7 @@
             <span>Oceanos</span>
         </div>
     </div>
-    <section>
+    <section class="destinos">
         <p>lugares inolvidable</p>
         <h2>Destinos Inolvidables</h2>
         <figure>
@@ -65,32 +65,58 @@
             </div>
         </figure>
     </section>
-    <section>
-        <div>
-            <p>Identidad y Tradicion</p>
-            <h2>Una Cultura Viva y Vibrante</h2>
-            <p>Colombia es un mosaico de etnias, ritmos y colores. Su riqueza cultural nace de la fusión de raíces
-                indígenas, africanas y europeas, que dan vida a expresiones únicas en el mundo.</p>
-            <div class="card">
-                <div class="face">
+    <section class="cultura">
+        <div class="cultura-info">
+            <p class="cultura-info__label">Identidad y Tradicion</p>
+            <h2 class="cultura-info__title">Una Cultura Viva y Vibrante</h2>
+            <p class="cultura-info__desc">Colombia es un mosaico de etnias, ritmos y colores. Su riqueza cultural nace
+                de la fusión de raíces indígenas, africanas y europeas, que dan vida a expresiones únicas en el mundo.
+            </p>
+
+            <div class="card card--danza">
+                <div class="card__front">
                     <img src="./assets/icons/icon-danza.png" alt="">
                     <h3>Vallenato & Cumbia</h3>
                 </div>
-                <div>
+                <div class="card__back">
                     <p>Ritmos declarados Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO.</p>
                 </div>
             </div>
-        </div>
-        <figure>
-            <div onclick="playVideo()">
-                <img id="artImg" src="./assets/img/artesania.png" alt="">
-                <iframe id="artesania" width="560" height="315" src="https://www.youtube.com/embed/257GbORDfyQ?si=d7YAKp1K0jrIiODB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <div class="card card--flores">
+                <div class="card__front">
+                    <img src="./assets/icons/icon-flores.png" alt="">
+                    <h3>Feria de las Flores</h3>
+                </div>
+                <div class="card__back">
+                    <p>Medellín celebra cada agosto su identidad floral con el desfile más colorido de América</p>
+                </div>
             </div>
-            <div></div>
-            <div><img src="./assets/img/Danza.jpg" alt=""></div>
+
+            <div class="card card--arte">
+                <div class="card__front">
+                    <img src="./assets/icons/icon-arte.png" alt="">
+                    <h3>Arte Precolombino</h3>
+                </div>
+                <div class="card__back">
+                    <p>El Museo del Oro alberga la mayor colección de orfebrería precolombina del mundo.</p>
+                </div>
+            </div>
+        </div>
+
+        <figure class="cultura-media">
+            <div class="cultura-media__video" onclick="playVideo()">
+                <img id="artImg" src="./assets/img/artesania.png" alt="">
+            </div>
+            <div class="cultura-media__musica">
+                <img src="./assets/img/musica-vallenata.jpg" alt="">
+            </div>
+            <div class="cultura-media__danza">
+                <img src="./assets/img/Danza.jpg" alt="">
+            </div>
         </figure>
     </section>
-    <section>
+    <section class="gastronomia">
         <p>Sabores Autenticos</p>
         <h2>Gastronomina Regional</h2>
     </section>

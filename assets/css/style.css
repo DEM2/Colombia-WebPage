@@ -21,44 +21,43 @@ h3 {
   font-family: var(--font-heading);
 }
 
-section {
+.main-section {
   min-height: 100vh;
-  position: relative;
   padding: 5rem 3rem;
-}
-section:nth-child(2) {
   background: radial-gradient(ellipse 80% 60% at 70% 30%, rgba(26, 107, 60, 0.45), transparent);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-section:nth-child(2) h1 {
+.main-section h1 {
   font-size: 10rem;
 }
-section:nth-child(2) p {
+.main-section p {
   font-size: 2rem;
 }
-section:nth-child(4) {
+
+.destinos {
   background-color: var(--dark);
   display: flex;
   flex-direction: column;
+  padding: 5rem 3rem;
 }
-section:nth-child(4) p {
+.destinos p {
   color: var(--amarillo);
   font-size: 1.5em;
 }
-section:nth-child(4) h2 {
+.destinos h2 {
   color: white;
   font-size: 4em;
 }
-section:nth-child(4) figure {
+.destinos figure {
   display: grid;
   grid-template-columns: 30em repeat(2, 1fr);
   grid-template-rows: 20em 1fr;
   gap: 0.7em;
   height: 35em;
 }
-section:nth-child(4) figure div {
+.destinos figure div {
   overflow: hidden;
   padding: 3em;
   display: flex;
@@ -66,137 +65,156 @@ section:nth-child(4) figure div {
   justify-content: end;
   transition: transform 0.35s ease-in-out;
 }
-section:nth-child(4) figure div h2 {
+.destinos figure div h2 {
   font-size: 2.5em;
   font-weight: 300;
 }
-section:nth-child(4) figure div p {
+.destinos figure div p {
   font-size: 1.2em;
   color: white;
 }
-section:nth-child(4) figure div:first-child {
+.destinos figure div:first-child {
   grid-area: 1/1/3/2;
   background: linear-gradient(160deg, rgba(123, 63, 0, 0.7) 0%, rgba(212, 130, 26, 0.5) 40%, rgba(26, 74, 138, 0.7) 100%), url("../img/Cartagena.jpg");
   background-size: cover;
   background-position: center;
 }
-section:nth-child(4) figure div:nth-child(2) {
+.destinos figure div:nth-child(2) {
   grid-area: 1/2/2/3;
   background: linear-gradient(135deg, rgba(13, 59, 26, 0.7) 0%, rgba(26, 107, 60, 0.5) 50%, rgba(45, 155, 90, 0.7) 100%), url("../img/Amazonia.jpg");
   background-size: cover;
   background-position: center;
 }
-section:nth-child(4) figure div:nth-child(3) {
+.destinos figure div:nth-child(3) {
   grid-area: 1/3/2/4;
   background: linear-gradient(135deg, rgba(10, 10, 42, 0.7) 0%, rgba(26, 26, 90, 0.5) 50%, rgba(58, 58, 154, 0.7) 100%), url("../img/Medellin_.jpg");
   background-size: cover;
   background-position: center;
 }
-section:nth-child(4) figure div:nth-child(4) {
+.destinos figure div:nth-child(4) {
   grid-area: 2/2/3/3;
   background: linear-gradient(135deg, rgba(59, 31, 10, 0.7) 0%, rgba(123, 74, 26, 0.5) 60%, rgba(193, 125, 58, 0.7) 100%), url("../img/eje_cafetero.jpg");
   background-size: cover;
   background-position: center;
 }
-section:nth-child(4) figure div:last-child {
+.destinos figure div:last-child {
   grid-area: 2/3/3/4;
   background: linear-gradient(135deg, rgba(74, 10, 10, 0.7) 0%, rgba(154, 26, 26, 0.5) 50%, rgba(212, 64, 64, 0.7) 100%), url("../img/villa_de_leyva.jpg");
   background-size: cover;
   background-position: center;
 }
-section:nth-child(4) figure div:hover {
+.destinos figure div:hover {
   transform: scale(1.01);
   cursor: pointer;
 }
-section:nth-child(5) {
+
+.cultura {
+  padding: 5rem 3rem;
   display: flex;
   gap: 5em;
 }
-section:nth-child(5) div {
-  display: flex;
-  flex-direction: column;
+.cultura-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 25px 150px 100px 150px;
   gap: 1em;
 }
-section:nth-child(5) div p:first-child {
-  color: red;
+.cultura-info__label {
+  grid-area: 1/1/2/4;
+  color: var(--rojo);
 }
-section:nth-child(5) div h2 {
+.cultura-info__title {
+  grid-area: 2/1/3/4;
   font-size: 3em;
 }
-section:nth-child(5) div .card {
+.cultura-info__desc {
+  grid-area: 3/1/4/4;
+}
+.cultura .card {
   background-color: transparent;
   position: relative;
-  width: 30%;
-  height: 30%;
+  width: 100%;
+  height: 100%;
   perspective: 600px;
-}
-section:nth-child(5) div .card .face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  transition: 0.5s;
-  overflow: hidden;
-}
-section:nth-child(5) div .card img {
-  width: 3em;
-  height: 3em;
-  align-self: center;
-}
-section:nth-child(5) div .card h3 {
-  text-align: center;
-  font-size: 1em;
-}
-section:nth-child(5) div .card div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  transition: 5s;
   transform-style: preserve-3d;
 }
-section:nth-child(5) div .card div:first-child {
-  transform: rotateY(0deg);
-  background-color: rgba(220, 30, 30, 0.7);
+.cultura .card__front, .cultura .card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  transition: transform 0.6s ease;
 }
-section:nth-child(5) div .card div:last-child {
+.cultura .card__front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(0deg);
+}
+.cultura .card__front img {
+  width: 2em;
+  height: 2em;
+  filter: brightness(0) invert(1);
+}
+.cultura .card__front h3 {
+  font-size: 1em;
+  font-weight: 300;
+  margin-top: 0.5em;
+  color: whitesmoke;
+}
+.cultura .card__back {
   transform: rotateY(180deg);
   background-color: var(--dark);
-  padding: 10px;
-  align-self: center;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-section:nth-child(5) div .card:hover div:first-child {
-  transform: rotatey(-180deg);
+.cultura .card__back p {
+  color: whitesmoke;
 }
-section:nth-child(5) div .card:hover div:last-child {
-  transform: rotatey(0deg);
+.cultura .card:hover .card__front {
+  transform: rotateY(-180deg);
 }
-section:nth-child(5) figure {
+.cultura .card:hover .card__back {
+  transform: rotateY(0deg);
+}
+.cultura .card--danza .card__front {
+  background: linear-gradient(135deg, rgba(120, 40, 10, 0.85) 0%, rgba(180, 90, 20, 0.8) 50%, rgba(210, 150, 60, 0.75) 100%);
+}
+.cultura .card--flores .card__front {
+  background: linear-gradient(135deg, rgba(140, 20, 80, 0.8) 0%, rgba(190, 60, 30, 0.78) 50%, rgba(170, 120, 10, 0.75) 100%);
+}
+.cultura .card--arte .card__front {
+  background: linear-gradient(135deg, rgba(70, 30, 5, 0.9) 0%, rgba(130, 70, 20, 0.85) 50%, rgba(175, 120, 50, 0.8) 100%);
+}
+.cultura-media {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 18em 18em;
+  grid-template-rows: 18em 15em;
   width: 100%;
   gap: 1em;
 }
-section:nth-child(5) figure div:first-child {
-  grid-area: 1/1/2/3;
-  background-color: #D4821A;
-}
-section:nth-child(5) figure div:nth-child(2) {
-  background-color: brown;
-}
-section:nth-child(5) figure div:last-child {
-  background-color: aqua;
-}
-section:nth-child(5) img {
+.cultura-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-section:nth-child(5) iframe {
-  width: 100%;
+.cultura-media__video {
+  grid-area: 1/1/2/3;
+  overflow: hidden;
+  cursor: pointer;
+}
+.cultura-media__musica {
+  grid-area: 2/1/3/2;
+  overflow: hidden;
+}
+.cultura-media__danza {
+  grid-area: 2/2/3/3;
+  overflow: hidden;
 }
 
 .data {
