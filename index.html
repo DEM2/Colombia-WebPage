@@ -14,10 +14,19 @@
 </head>
 
 <body>
-    <header></header>
-    <section class="main-section">
+    <header> 
+        <h2><a href="#main">COLOMBIA</a></h2>
+        <nav>
+            <ul class="menu">
+                <li><a href="#Destinos">Destinos</a></li>
+                <li><a href="#Cultura">Cultura</a></li>
+                <li><a href="#Gastronomia">Gastronomia</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="main" class="main-section">
         <h1>
-            Tierra de vida
+           Tierra de <span>vida</span>
         </h1>
         <p>
             Desde las cumbres nevadas de los andes hasta las playas del caribe y el pacifico.
@@ -42,9 +51,9 @@
             <span>Oceanos</span>
         </div>
     </div>
-    <section class="destinos">
-        <p>lugares inolvidable</p>
-        <h2>Destinos Inolvidables</h2>
+    <section id="Destinos" class="destinos">
+        <p>Lugares que enamoran</p>
+        <h2>Destinos <span>Inolvidables</span></h2>
         <figure>
             <div>
                 <h2>Cartagena de Indias</h2>
@@ -65,7 +74,7 @@
             </div>
         </figure>
     </section>
-    <section class="cultura">
+    <section id="Cultura" class="cultura">
         <div class="cultura-info">
             <p class="cultura-info__label">Identidad y Tradicion</p>
             <h2 class="cultura-info__title">Una Cultura Viva y Vibrante</h2>
@@ -73,39 +82,119 @@
                 de la fusión de raíces indígenas, africanas y europeas, que dan vida a expresiones únicas en el mundo.
             </p>
 
-            <div class="card card--danza">
-                <div class="card__front">
-                    <img src="./assets/icons/icon-danza.png" alt="">
-                    <h3>Vallenato & Cumbia</h3>
-                </div>
-                <div class="card__back">
-                    <p>Ritmos declarados Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO.</p>
+            <div class="fc" >
+                <div class="fc-inner">
+                    <div class="face front">
+                        <img src="./assets/img/instrumento.jpg" alt="Acordeonero vallenato" />
+                        <div class="img-err" style="display:none; background:#1a0a2e;">Vallenato</div>
+                        <div class="front-grad"></div>
+                        <div class="front-info">
+                            <p class="ftag">Música · Caribe colombiano</p>
+                            <h3 class="ftit">Vallenato & Cumbia</h3>
+                            <p class="fsub">Costa Caribe · Patrimonio UNESCO 2015</p>
+                        </div>
+                    </div>
+
+                    <div class="face back">
+                        <div class="bk">
+                            <div>
+                                <div class="bk-top">
+                                    <div class="bk-dot" style="background:#7c3aed;"></div>
+                                    <p class="bk-title">Vallenato y Cumbia</p>
+                                </div>
+                                <div class="bk-div"></div>
+                                <p class="bk-body">
+                                    Nacido en el Caribe colombiano, el vallenato fusiona tradiciones
+                                    africanas, indígenas y europeas. El acordeón, la caja y la guacharaca
+                                    son su triada sagrada. La cumbia, danza de tambores y velas encendidas,
+                                    es el alma del litoral. Declarado Patrimonio Inmaterial de la Humanidad
+                                    por la UNESCO en 2015.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="card card--flores">
-                <div class="card__front">
-                    <img src="./assets/icons/icon-flores.png" alt="">
-                    <h3>Feria de las Flores</h3>
-                </div>
-                <div class="card__back">
-                    <p>Medellín celebra cada agosto su identidad floral con el desfile más colorido de América</p>
+            <!-- CARD 2: FERIA DE LAS FLORES -->
+            <div class="fc">
+                <div class="fc-inner">
+
+                    <div class="face front">
+                        <img src="./assets/img/feria-Medellin.jpg" alt="Silletero Feria de las Flores Medellín" />
+                        <div class="img-err" style="display:none; background:#0d2a0d;">Feria de las Flores</div>
+                        <div class="front-grad"></div>
+                        <div class="front-info">
+                            <p class="ftag">Tradición · Agosto</p>
+                            <h3 class="ftit">Feria de las Flores</h3>
+                            <p class="fsub">Medellín · Antioquia · desde 1957</p>
+                        </div>
+                    </div>
+
+                    <div class="face back">
+                        <div class="bk">
+                            <div>
+                                <div class="bk-top">
+                                    <div class="bk-dot" style="background:#15803d;"></div>
+                                    <p class="bk-title">Feria de las Flores</p>
+                                </div>
+                                <div class="bk-div"></div>
+                                <p class="bk-body">
+                                    Cada agosto Medellín florece. Los silleteros de Santa Elena descienden
+                                    cargando silletas con miles de flores elaboradas artesanalmente. Desde
+                                    1957, el Desfile de Silleteros es el corazón de esta celebración,
+                                    reuniendo más de 500 portadores con sus creaciones en 80+ variedades
+                                    de flores.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="card card--arte">
-                <div class="card__front">
-                    <img src="./assets/icons/icon-arte.png" alt="">
-                    <h3>Arte Precolombino</h3>
-                </div>
-                <div class="card__back">
-                    <p>El Museo del Oro alberga la mayor colección de orfebrería precolombina del mundo.</p>
+
+            <!-- CARD 3: Arte Precolombina -->
+            <div class="fc" >
+                <div class="fc-inner">
+
+                    <div class="face front">
+                        <img src="./assets/img/arte-precolombino.jpg" alt="Arte Precolombino" />
+                        <div class="img-err" style="display:none; background:#1a0f00;">Arte Precolombino</div>
+                        <div class="front-grad"></div>
+                        <div class="front-info">
+                            <p class="ftag">Orfebrería · Precolombina</p>
+                            <h3 class="ftit">Artesanías Precolombinas</h3>
+                            <p class="fsub">Museo del Oro · Bogotá · 55.000 piezas</p>
+                        </div>
+                    </div>
+
+                    <div class="face back">
+                        <div class="bk">
+                            <div>
+                                <div class="bk-top">
+                                    <div class="bk-dot" style="background:#b45309;"></div>
+                                    <p class="bk-title">Artesanías Precolombinas</p>
+                                </div>
+                                <div class="bk-div"></div>
+                                <p class="bk-body">
+                                    Muisca, Quimbaya, Zenú y Calima dominaron el oro como ninguna otra
+                                    cultura. Sus piezas en tumbaga —aleación de oro y cobre— representaban
+                                    dioses, chamanes y cosmos. La icónica Balsa Muisca simboliza el ritual
+                                    de El Dorado. El Museo del Oro de Bogotá alberga la mayor colección de
+                                    orfebrería prehispánica del mundo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
         <figure class="cultura-media">
-            <div class="cultura-media__video" onclick="playVideo()">
+            <div class="cultura-media__video">
                 <img id="artImg" src="./assets/img/artesania.png" alt="">
             </div>
             <div class="cultura-media__musica">
@@ -116,9 +205,36 @@
             </div>
         </figure>
     </section>
-    <section class="gastronomia">
-        <p>Sabores Autenticos</p>
-        <h2>Gastronomina Regional</h2>
+    <section id="Gastronomia" class="gastronomia">
+        <p class="gastronomia-label">Sabores Autenticos</p>
+        <h2>Gastronomina <span>Regional</span></h2>
+        <div class="gastronomia-wrap">
+            <div class="food-plate-card">
+                <img src="./assets/img/cazuela.png" alt="">
+                <video src="./assets/videos/cazuela.mp4" muted loop preload="none"></video>
+                <div>
+                    <h3>Cazuela de Marisco</h3>
+                    <span> Santa Marta - Cartagena - Barranquilla </span>
+                    <p>
+                        Plato representativo de la costa Caribe colombiana que combina sabores del mar con el dulzor del
+                        coco.
+                    </p>
+                </div>
+            </div>
+
+            <div class="food-plate-card">
+                <img src="./assets/img/cafe.png" alt="">
+                <video src="./assets/videos/cafe.mp4" muted loop preload="none"></video>
+                <div>
+                    <h3>Cafe</h3>
+                    <span> Region Cafetera</span>
+                    <p>
+                        Reconocido mundialmente por su calidad, el café ha dado identidad al Eje Cafetero, cuyo paisaje
+                        es patrimonio cultural de la UNESCO.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
     <footer>
         <h3>Colombia</h3>
