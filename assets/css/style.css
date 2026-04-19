@@ -20,6 +20,7 @@ body {
   font-family: var(--font-body);
 }
 
+a,
 h1,
 h2,
 h3 {
@@ -52,14 +53,24 @@ header .menu {
   gap: 30px;
   list-style: none;
 }
-header .menu a {
+header .menu li a {
   color: #ddd;
+  background: linear-gradient(to right, var(--amarillo) 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.2rem;
+  transition: background-position 1s;
+}
+header .menu li a:hover {
+  background-position: 0 0;
 }
 
 .main-section {
   min-height: 100vh;
   padding: 5rem 3rem;
-  background: radial-gradient(ellipse 80% 60% at 70% 30%, rgba(26, 107, 60, 0.45), transparent);
+  background: radial-gradient(ellipse 90% 100% at 70% 50%, rgba(255, 220, 0, 0.45), rgba(26, 107, 60, 0.4), transparent);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,10 +78,11 @@ header .menu a {
 .main-section h1 {
   font-size: 8rem;
   font-weight: 400;
-  font-style: italic;
+  color: var(--dark);
 }
 .main-section h1 span {
-  font-style: italic;
+  font-weight: 700;
+  color: black;
 }
 .main-section p {
   font-size: 1.6rem;
@@ -82,7 +94,7 @@ header .menu a {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 5rem 3rem;
+  padding: 7.5rem 3rem;
 }
 .destinos p {
   color: var(--amarillo);
@@ -113,18 +125,30 @@ header .menu a {
   flex-direction: column;
   justify-content: end;
   transition: transform 0.35s ease-in-out;
+  border-radius: 8px;
+}
+.destinos figure div span {
+  color: #ddd;
+  display: inline-block;
+  letter-spacing: 0.18em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  width: fit-content;
+  padding: 0.25rem 0.7rem;
+  border: 0.5px solid rgba(245, 242, 230, 0.774);
 }
 .destinos figure div h2 {
   font-size: 2.5em;
   font-weight: 300;
 }
 .destinos figure div p {
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: white;
+  letter-spacing: normal;
 }
 .destinos figure div:first-child {
   grid-area: 1/1/3/2;
-  background: linear-gradient(160deg, rgba(123, 63, 0, 0.7) 0%, rgba(212, 130, 26, 0.5) 40%, rgba(26, 74, 138, 0.7) 100%), url("../img/Cartagena.jpg");
+  background: linear-gradient(160deg, rgba(123, 63, 0, 0.7) 0%, rgba(212, 130, 26, 0.5) 40%, rgba(26, 74, 138, 0.8) 100%), url("../img/Cartagena.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -136,7 +160,7 @@ header .menu a {
 }
 .destinos figure div:nth-child(3) {
   grid-area: 1/3/2/4;
-  background: linear-gradient(135deg, rgba(10, 10, 42, 0.7) 0%, rgba(26, 26, 90, 0.5) 50%, rgba(58, 58, 154, 0.7) 100%), url("../img/Medellin_.jpg");
+  background: linear-gradient(135deg, rgba(10, 10, 42, 0.7) 0%, rgba(26, 26, 90, 0.5) 50%, rgba(58, 58, 154, 0.8) 100%), url("../img/Medellin_.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -158,7 +182,7 @@ header .menu a {
 }
 
 .cultura {
-  padding: 5rem 3rem;
+  padding: 7.5rem 3rem;
   display: flex;
   gap: 5em;
 }
@@ -205,7 +229,7 @@ header .menu a {
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 18px;
+  border-radius: 10px;
   overflow: hidden;
 }
 .cultura .back {
@@ -314,21 +338,24 @@ header .menu a {
 }
 .cultura-media__video {
   grid-area: 1/1/2/3;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
 }
 .cultura-media__musica {
   grid-area: 2/1/3/2;
+  border-radius: 8px;
   overflow: hidden;
 }
 .cultura-media__danza {
   grid-area: 2/2/3/3;
+  border-radius: 8px;
   overflow: hidden;
 }
 
 .gastronomia {
   background: var(--dark);
-  padding: 5em 3em;
+  padding: 7.5em 3em;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -389,10 +416,12 @@ header .menu a {
   color: whitesmoke;
   font-size: 1em;
   text-align: justify;
+  font-weight: lighter;
 }
 .gastronomia-wrap .food-plate-card div span {
-  color: gray;
-  font-size: 0.9em;
+  color: var(--amarillo);
+  font-size: 0.75em;
+  letter-spacing: 0.18em;
 }
 .gastronomia-wrap .food-plate-card div span::before {
   content: "";
@@ -428,7 +457,7 @@ header .menu a {
   justify-content: space-between;
   padding: 3em;
   background-color: var(--amarillo);
-  height: 20vh;
+  height: 15vh;
 }
 .data div {
   display: flex;
@@ -437,10 +466,10 @@ header .menu a {
   align-items: center;
 }
 .data div span {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 .data div span:first-child {
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 footer {
@@ -456,7 +485,7 @@ footer h3 {
   font-weight: 400;
 }
 footer p {
-  color: white;
+  color: gray;
 }
 
 /*# sourceMappingURL=style.css.map */
