@@ -15,6 +15,7 @@ html {
     --amarillo: #FCD116;
     --rojo: #CE1126;
     --dark: #0D0D0D;
+    --teal: #1B6B5A;
 }
 
 body {
@@ -43,7 +44,7 @@ header {
     background-color: #0d0d0df1;
     position: fixed;
     width: 100%;
-    z-index: 1111;
+    z-index: 100;
 
     h2 {
         a {
@@ -54,44 +55,74 @@ header {
 
     #bMenu {
         display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 5px;
 
-
+        span {
+            background-color: #fff;
+            border-radius: 5px;
+            width: 20px;
+            height: 4px;
+            transition: all 300ms ease-out;
+        }
     }
 
-
-
     @media (max-width: 597px) {
+
         #bMenu {
-            display: block;
+            display: flex;
+
         }
 
-        nav {
-            position: absolute;
-            top: 100px;
-            background: black;
-            display: none;
-            &.active{
-                display: block;
+        .bttActive {
+            span {
+                &:first-child {
+                    transform: translate(0px, 8px) rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                    width: 0;
+                }
+
+                &:last-child {
+                    transform: translate(0px, -10px) rotate(-45deg);
+                }
             }
         }
 
-        .menu{
-            flex-direction: column;
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 92px;
+            right: -100%;
+            width: 18rem;
+            height: 25rem;
+            background: var(--dark);
+            backdrop-filter: blur(18px);
+            transition: all .6s ease-in-out;
+
+            &.active {
+                right: 0px;
+            }
         }
 
+        .menu {
+            flex-direction: column;
+            align-items: center;
+        }
     }
-
-
 
     .menu {
         display: flex;
         gap: 20px;
         list-style: none;
 
-
         li {
             a {
-
                 color: #ddd;
                 background: linear-gradient(to right, var(--amarillo) 50%, #ffff 50%);
                 background-size: 200% 100%;
@@ -106,7 +137,6 @@ header {
                 }
             }
         }
-
     }
 }
 
@@ -130,7 +160,6 @@ header {
             font-weight: 700;
             color: black;
         }
-
     }
 
     p {
@@ -138,14 +167,18 @@ header {
         width: 60%;
     }
 
-     @media (max-width: 597px) {
-        h1{
+    @media (max-width: 597px) {
+        gap: 20px;
+
+        h1 {
             font-size: 6rem;
         }
-        p{
+
+        p {
             width: 100%;
+            text-align: justify;
         }
-     }
+    }
 }
 
 .destinos {
@@ -173,7 +206,8 @@ header {
         }
     }
 
-    figure {
+    /* Grid de destinos */
+    .destinos-grid {
         display: grid;
         grid-template-columns: 30em repeat(2, 1fr);
         grid-template-rows: 20em 1fr;
@@ -200,9 +234,10 @@ header {
                 border: .5px solid rgba(245, 242, 230, 0.774);
             }
 
-            h2 {
+            h3 {
                 font-size: 2.5em;
                 font-weight: 300;
+                color: white;
             }
 
             p {
@@ -249,7 +284,6 @@ header {
                         rgba(193, 125, 58, 0.7) 100%), url("../img/eje_cafetero.jpg");
                 background-size: cover;
                 background-position: center;
-
             }
 
             &:last-child {
@@ -268,215 +302,296 @@ header {
             }
         }
 
-         @media (max-width: 597px) {
+
+    }
+
+    @media (max-width: 597px) {
+        .destinos-grid {
             display: flex;
             flex-direction: column;
-         }
+            height: auto;
+        }
+
+        padding: 7.5em 2em;
     }
+
 }
 
 .cultura {
     padding: 7.5rem 3rem;
     display: flex;
-    gap: 5em;
+    flex-direction: column;
+    gap: 2em;
 
-    // ── INFO IZQUIERDA ──────────────────────────
-    &-info {
-        display: grid;
-        grid-template-columns: repeat(3, 230px);
-        grid-template-rows: 25px 80px 80px 320px;
-        gap: 1em;
-
-        &__label {
-            grid-area: 1/1/2/4;
-            color: var(--rojo);
-            font-size: 1em;
-            letter-spacing: .3em;
-        }
-
-        &__title {
-            grid-area: 2/1/3/4;
-            font-size: 3em;
-        }
-
-        &__desc {
-            grid-area: 3/1/4/4;
-        }
-
-         @media (max-width: 597px) {
-            display: flex;
-            flex-direction: column;
-         }
+    &__label {
+        color: var(--rojo);
+        font-size: 1em;
+        letter-spacing: .3em;
     }
 
-    /* --- flip card base --- */
-    .fc {
-        height: 100%;
-        perspective: 1200px;
+    &__title {
+        font-size: 3em;
+    }
+
+    &__desc {
+        width: 50%;
+    }
+
+
+    /* ── Mosaico ── */
+    .mosaic {
+        display: grid;
+        grid-template-columns: 500px repeat(2, 1fr);
+        grid-template-rows: 400px 250px 300px;
+        gap: 14px;
+    }
+
+    /* Celda base */
+    .mc {
+        border-radius: 6px;
+        overflow: hidden;
+        animation: reveal 0.8s ease both;
+    }
+
+    /* ── Foto principal grande — izq arriba ── */
+    .mc-foto-main {
+        grid-area: 1/1/3/2;
+        position: relative;
+        min-height: 440px;
+        animation-delay: 0.1s;
         cursor: pointer;
     }
 
-    .fc-inner {
-        position: relative;
+    .mc-foto-main img {
         width: 100%;
         height: 100%;
-        transform-style: preserve-3d;
-        transition: transform .7s cubic-bezier(.4, 0, .2, 1);
+        object-fit: cover;
+        object-position: center top;
+        transition: transform 0.6s ease;
+        filter: brightness(0.88);
     }
 
-    .fc:hover .fc-inner,
-    .fc.on .fc-inner {
-        transform: rotateY(180deg);
+    .mc-foto-main:hover img {
+        transform: scale(1.04);
     }
 
-    .face {
+    .photo-overlay {
         position: absolute;
         inset: 0;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        border-radius: 10px;
-        overflow: hidden;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.62) 0%, transparent 55%);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: end;
+        align-items: flex-start;
+        padding: 28px;
+        pointer-events: none;
+
+        p {
+            color: #fff;
+        }
     }
 
-    .back {
-        transform: rotateY(180deg);
-        border: .5px solid #ddd;
+    .photo-label {
+        font-size: 1.15rem;
+        font-style: italic;
+        color: #fff;
+        line-height: 1.3;
     }
 
-    /* --- frente --- */
-    .front {
-        position: relative;
+    /* ── Tarjeta hero roja — der arriba ── */
+    .mc-card-hero {
+        grid-area: 1/2/2/3;
+        background: var(--rojo);
+        color: #fff;
+        padding: 36px 32px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        height: 100%;
+        min-height: 210px;
+        animation-delay: 0.15s;
+        cursor: pointer;
+        transition: filter 0.25s;
     }
 
-    .front img {
-        position: absolute;
-        inset: 0;
+    .mc-card-hero:hover {
+        filter: brightness(1.1);
+    }
+
+    /* ── Foto pequeña — extremo der arriba ── */
+    .mc-foto-sm {
+        grid-area: 1/3/2/4;
+
+        animation-delay: 0.2s;
+        cursor: pointer;
+    }
+
+    .mc-foto-sm img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
+        display: block;
+        transition: transform 0.6s ease;
+        filter: brightness(0.85);
     }
 
-    .front-grad {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, .82) 38%, rgba(0, 0, 0, .1) 100%);
+    .mc-foto-sm:hover img {
+        transform: scale(1.05);
     }
 
-    .front-info {
-        position: relative;
-        z-index: 2;
-        padding: 18px 16px 16px;
+    /* ── Tarjeta arena — centro ── */
+    .mc-card-a {
+        grid-area: 3/1/4/2;
+        background: var(--sand);
+        padding: 30px 28px;
+        animation-delay: 0.25s;
+        cursor: pointer;
+        transition: transform 0.25s;
     }
 
-    .ftag {
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, .6);
-        margin: 0 0 5px;
+    .mc-card-a:hover {
+        transform: translateY(-4px);
     }
 
-    .ftit {
-        font-size: 19px;
-        font-weight: 500;
+    /* ── Tarjeta oscura — centro derecha ── */
+    .mc-card-b {
+        grid-area: 2/3/3/4;
+        background: var(--dark);
         color: #fff;
-        margin: 0 0 3px;
-        line-height: 1.2;
+        padding: 30px 28px;
+        animation-delay: 0.3s;
+        cursor: pointer;
+        transition: transform 0.25s;
     }
 
-    .fsub {
-        font-size: 11px;
-        color: rgba(255, 255, 255, .55);
-        margin: 0;
+    .mc-card-b:hover {
+        transform: translateY(-4px);
     }
 
-    /* --- reverso --- */
-    .bk {
+    /* ── Foto ancha — fila 3 izq ── */
+    .mc-foto-wide {
+        grid-area: 2/2/4/3;
+        min-height: 200px;
+        animation-delay: 0.35s;
+        cursor: pointer;
+    }
+
+    .mc-foto-wide img {
+        width: 100%;
         height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: transform 0.6s ease;
+        filter: brightness(0.82);
+    }
+
+    .mc-foto-wide:hover img {
+        transform: scale(1.04);
+    }
+
+    /* ── Tarjeta teal — fila 3 der ── */
+    .mc-card-c {
+        grid-area: 3/3/4/4;
+        background: var(--teal);
+        color: #fff;
+        padding: 32px 36px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 22px 18px 18px;
-        background: #fff;
+        justify-content: center;
+        animation-delay: 0.4s;
+        cursor: pointer;
+        transition: filter 0.25s;
     }
 
-    .bk-top {
+    .mc-card-c:hover {
+        filter: brightness(1.08);
+    }
+
+    .card-arrow {
+        margin-top: 18px;
+        font-size: 1.1rem;
+        opacity: 0.5;
+        transition: opacity 0.2s, transform 0.2s;
+        display: inline-block;
+    }
+
+    *:hover>.card-arrow {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+
+    /* ── Sub-etiqueta de ubicación (tu elemento original) ── */
+    .card-location {
+        font-family: var(--font-heading);
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        color: var(--amarillo);
+        margin-top: 8px;
         display: flex;
         align-items: center;
-        gap: 10px;
-        margin-bottom: 2px;
+        gap: 6px;
     }
 
-    .bk-dot {
-        width: 8px;
-        height: 8px;
+    .card-location::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        background: var(--rojo);
         border-radius: 50%;
-        flex-shrink: 0;
+        display: inline-block;
     }
 
-    .bk-title {
-        font-size: 15px;
-        font-weight: 500;
-        color: #111;
-        margin: 0;
+    .mc-card-b .card-location {
+        color: #aaa;
     }
 
-    .bk-div {
-        height: .5px;
-        background: #ddd;
-        margin: 12px 0;
+    .mc-card-b .card-location::before {
+        background: #555;
     }
 
-    .bk-body {
-        font-size: 12px;
-        line-height: 1.75;
-        color: #555;
-        flex: 1;
-    }
 
-    // ── FIGURA MEDIA ────────────────────────────
-    &-media {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 18em 15em;
-        width: 100%;
-        gap: 1em;
+    @media (max-width: 597px) {
+        padding: 7em 2em;
 
-        img {
+        p {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
-        &__video {
+        .mosaic {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+        }
+
+        .mc-foto-main {
             grid-area: 1/1/2/3;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
         }
 
-        &__musica {
+        .mc-card-hero {
             grid-area: 2/1/3/2;
-            border-radius: 8px;
-            overflow: hidden;
         }
 
-        &__danza {
+        .mc-foto-sm {
             grid-area: 2/2/3/3;
-            border-radius: 8px;
-            overflow: hidden;
         }
 
+        .mc-card-a {
+            grid-area: 3/1/4/2;
+        }
+
+        .mc-card-b {
+            grid-area: 3/2/4/3;
+        }
+
+        .mc-foto-wide {
+            grid-area: 4/1/5/3;
+        }
+
+        .mc-card-c {
+            grid-area: 5/1/6/3;
+        }
     }
-     @media (max-width: 597px) {
-        flex-direction: column;
-     }
 }
 
 .gastronomia {
@@ -521,7 +636,6 @@ header {
             &::after {
                 content: "";
                 position: absolute;
-
                 width: 100%;
                 height: 50%;
                 background: linear-gradient(to top, #050505, transparent);
@@ -566,7 +680,6 @@ header {
                         align-items: center;
                     }
                 }
-
             }
         }
 
@@ -585,14 +698,12 @@ header {
         video {
             opacity: 0;
             transform: scale(1.05);
-
         }
 
         img {
             opacity: 1;
             transform: scale(1);
         }
-
     }
 }
 
@@ -601,7 +712,7 @@ header {
     justify-content: space-between;
     padding: 3em;
     background-color: var(--amarillo);
-    height: 15vh;
+    min-height: 15vh;
 
     div {
         display: flex;
@@ -618,14 +729,15 @@ header {
         }
     }
 
-     @media (max-width: 597px) {
+    @media (max-width: 597px) {
         flex-direction: column;
+        gap: 20px;
         height: auto;
-     }
+    }
 }
 
 footer {
-    height: 15vh;
+    min-height: 15vh;
     background-color: #050505;
     display: flex;
     justify-content: space-between;
@@ -640,5 +752,4 @@ footer {
     p {
         color: gray;
     }
-
 }
